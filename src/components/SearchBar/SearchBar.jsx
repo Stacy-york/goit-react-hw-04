@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import css from './SearchBar.module.css';
+import { toast } from 'react-hot-toast';
 
 export default function SearchBar({ onSearch }) {
   const [query, setQuery] = useState('');
@@ -12,7 +13,10 @@ export default function SearchBar({ onSearch }) {
     e.preventDefault();
 
     const trimmedQuery = query.trim();
-    if (!trimmedQuery) return;
+    if (!trimmedQuery) {
+      toast.error('Oops! Looks like you forgot to type something.');
+      return;
+    }
 
     onSearch(trimmedQuery);
     setQuery('');

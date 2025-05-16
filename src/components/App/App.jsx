@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader';
 import ImageModal from '../ImageModal/ImageModal';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import ErrorMessage from '../ErrorMessage/ErrorMessage';
-import toast, { Toaster } from 'react-hot-toast';
+import { toast, Toaster } from 'react-hot-toast';
 import { fetchImages } from '../../unsplashAPI';
 
 export default function App() {
@@ -25,7 +25,7 @@ const [modalIsOpen, setModalIsOpen] = useState(false);
     setCurrentPage(1);
     setImageCollection([]);
 
-    toast.success('Here is your toast.');
+    toast.success('Let’s see what the lens has found!');
   };
 
   const openModal = (image) => {
@@ -70,7 +70,8 @@ const [modalIsOpen, setModalIsOpen] = useState(false);
   return (
     <div className={css.container}>
      <div className={css.searchBarWrapper}>
-  <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={handleSearch} />
+        <Toaster position="top-right" />
   {(isError || isLoading) && (
     <div className={css.statusWrapper}>
       {isError && <ErrorMessage />}
