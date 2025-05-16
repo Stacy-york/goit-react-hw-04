@@ -1,15 +1,11 @@
-import { Circles } from 'react-loader-spinner';
+import { ClipLoader } from 'react-spinners';
 import css from './Loader.module.css';
 
 export default function Loader() {
   return (
-    <div className={css.loader}>
-      <Circles
-        height="80"
-        width="80"
-        color="#007aff"
-        ariaLabel="loading"
-      />
+   <div className={css.loader} style={{ textAlign: 'center', marginTop: '16px' }}>
+      <ClipLoader color="#6b4075" size={50} />
     </div>
   );
 }
+
